@@ -1,0 +1,26 @@
+redis:
+  host: "192.168.0.142"
+  port: "6379"
+  login: "gav"
+  password: ""
+  connection_attempts: 5
+  timeout_between_attempts: 1
+  socket_timeout: 2
+request:
+  salt: "Otus"
+admin:
+  login: "login"
+  salt: "42"
+  score: 42
+gender:
+  unknown: 0
+  male: 1
+  female: 2
+condition:
+  birthday:
+    delta: "365 * 70"
+sqlite:
+  db_name: "database.db"
+  redis_table: "redis"
+  max_key_length: 2048
+  value_max_length: 2048
