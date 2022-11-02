@@ -1,0 +1,9 @@
+reports
+debug_info
+*/__pycache__
+docs
+database.db
+.coverage
+.mypy_cache
+__pycache__
+.pytest_cache
