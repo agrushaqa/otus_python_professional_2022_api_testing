@@ -1,0 +1,19 @@
+redis-cli -h 192.168.0.142 -p 6379 --user gav --pass Mks1aaa
+
+ACL SETUSER gav on >Mks1aaa allkeys +@all
+
+
+
+Setting up python3-audit (1:2.8.5-2ubuntu6) ...
+Setting up python3-numpy (1:1.17.4-5ubuntu3) ...
+Setting up python3-setools (4.2.2-1ubuntu2) ...
+Setting up setools (4.2.2-1ubuntu2) ...
+Setting up python3-sepolgen (3.0-1build1) ...
+Setting up python3-sepolicy (3.0-1build1) ...
+
+def read_all_results(cursor):
+    return cursor.fetchall()
+
+
+def read_one_string_from_result(cursor):
+    return cursor.fetchone()
