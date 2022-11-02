@@ -6,7 +6,7 @@ import requests
 from loguru import logger
 
 from api import MainHTTPHandler
-from redis_fill_data import fill_redis
+from src.redis_fill_data import fill_redis
 
 
 class TestApi:
