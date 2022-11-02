@@ -1,0 +1,4 @@
+redis:
+  host: "127.0.0.2"
+  period: 365 * 70
+  gender: 2

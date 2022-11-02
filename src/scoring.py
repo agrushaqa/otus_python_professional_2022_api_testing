@@ -1,18 +1,25 @@
 import hashlib
 import json
 
+from loguru import logger
 
-def get_score(store, phone, email, birthday=None, gender=None, first_name=None, last_name=None):
+
+def get_score(store, phone, email, birthday=None, gender=None, first_name=None,
+              last_name=None):
     key_parts = [
         first_name or "",
         last_name or "",
         phone or "",
         birthday.strftime("%Y%m%d") if birthday is not None else "",
     ]
-    key = "uid:" + hashlib.md5("".join(key_parts)).hexdigest()
+    logger.debug("key_parts:")
+    logger.debug(key_parts)
+    key = "uid:" + hashlib.md5("".join(key_parts).encode('utf-8')).hexdigest()
+    logger.debug("key:")
+    logger.debug(key)
     # try get from cache,
     # fallback to heavy calculation in case of cache miss
-    score = store.cache_get(key) or 0
+    score = float(store.cache_get(key) or 0)
     if score:
         return score
     if phone:
@@ -29,5 +36,6 @@ def get_score(store, phone, email, birthday=None, gender=None, first_name=None, 
 
 
 def get_interests(store, cid):
-    r = store.get("i:%s" % cid)
+    logger.info(f"get store for: i:{cid}'")
+    r = store.get(f"i:{cid}")
     return json.loads(r) if r else []
