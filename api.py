@@ -83,7 +83,8 @@ if __name__ == "__main__":
     (opts, args) = op.parse_args()
     server = HTTPServer(("localhost", opts.port), MainHTTPHandler)
     logger.info("Starting server at %s" % opts.port)
-    logger.add(opts.log, retention="10 days")
+    if opts.log:
+        logger.add(opts.log, retention="10 days")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
